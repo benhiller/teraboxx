@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css"> 
+  <link rel="stylesheet" type="text/css" href="inbox.css" />
+  <link rel="stylesheet" type="text/css" href="autocomplete/jquery.autocomplete.css" />
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="autocomplete/jquery.autocomplete.js"></script>
+  <script type="text/javascript" src="jquery.timers-1.1.2.js"></script>
+  <script type="text/javascript" src="inbox.js"></script>
+  <title>Teraboxx</title>
+</head>
+<body>
+  <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+  <div id="content">
+    <div id="header"><img src="header.png" /></div>
+    <div id="login"><fb:login-button id="loginbutton"></fb:login-button></div>
+    <div id="controls" style="display: none;">
+      <div id="search">
+        <input id="searchbox" type="search" results="5"/>
+        <button id="searchbutton" type='button' onclick="searchThreads();">Search</button>
+      </div>
+      <div id="filters">Show: 
+        <a id="showall" class="selected">all</a>, 
+        <a id="showunread">unread</a>, 
+        <a id="showread">read</a>
+      </div>
+      <div id="folders">Folder: 
+        <a id="showinbox" class="folder_selected">inbox
+          <span class="unread_count">(<span class="num"></span>)</span></a>, 
+        <a id="showoutbox">outbox
+          <span class="unread_count">(<span class="num"></span>)</span></a>, 
+        <a id="showupdates">updates
+          <span class="unread_count">(<span class="num"></span>)</span></a>
+      </div>
+      <div id="create_thread">
+        <a id="compose">Create thread</a>
+      </div>
+    </div>
+    <table id="inbox">
+    </table>
+    <div id="footer">A Ben Hiller Production (Works great in Safari, not as great in Firefox, probably doesn't work in IE)</div>
+  </div>
+  <script>
+    FB.init("a952833ec90726c1169bfc7e9d3a9ccd", "xd_receiver.htm");
+    //FB.init("452786ff91745a4d001d9c258b1df20e", "xd_receiver.htm");
+    FB_RequireFeatures(["Connect", "Api", "XdComm"],
+                       function() {
+                         FB.Connect.ifUserConnected(
+                         login,
+                         null)});
+  </script>
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-85731-6");
+      pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>

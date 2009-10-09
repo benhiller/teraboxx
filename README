@@ -1,0 +1,7 @@
+A demo of the Facebook Mailbox API with a static HTML page. It does all of the integration via the Facebook Connect Javascript library.
+
+Features include:
+
+* Auto-updating when you have new messages
+* Typeahead for names of your friends when composing messages
+* Viewing attachments
